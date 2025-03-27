@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My E-Commerce Site</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .section {
+            padding: 50px;
+            background: red;
+            color: white;
+            transition: all 0.5s ease-in-out;
+        }
+        .btn {
+            background: yellow;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+        .btn:hover {
+            transform: scale(1.1);
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+    <script>
+        function nextPhase(phaseId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(phaseId).style.display = 'block';
+        }
+    </script>
+</head>
+<body onload="nextPhase('phase1')">
+    <!-- 1st Phase: Website Name -->
+    <section class="section" id="phase1">
+        <h1>My E-Commerce Site</h1>
+        <button class="btn" onclick="nextPhase('phase2')">Click Here</button>
+    </section>
+    
+    <!-- 2nd Phase: Click Option -->
+    <section class="section" id="phase2" style="display: none;">
+        <h2>Click Here to Proceed</h2>
+        <button class="btn" onclick="nextPhase('phase3')">Click Here</button>
+    </section>
+    
+    <!-- 3rd Phase: Welcome Message -->
+    <section class="section" id="phase3" style="display: none;">
+        <h2>Welcome to Us</h2>
+        <p>Enjoy shopping with us!</p>
+        <button class="btn" onclick="nextPhase('phase4')">Click Here</button>
+    </section>
+    
+    <!-- 4th Phase: Bkash Option -->
+    <section class="section" id="phase4" style="display: none;">
+        <h2>Bkash Payment</h2>
+        <p>Send money to 017XXXXXXXX</p>
+        <button class="btn" onclick="nextPhase('phase5')">Click Here</button>
+    </section>
+    
+    <!-- 5th Phase: Payment Button -->
+    <section class="section" id="phase5" style="display: none;">
+        <h2>Make Your Payment</h2>
+        <button class="btn" onclick="alert('Proceeding to Payment!')">Click Here to Make Payment</button>
+    </section>
+    
+    <footer>
+        &copy; 2025 All Rights Reserved
+    </footer>
+</body>
+</html>
